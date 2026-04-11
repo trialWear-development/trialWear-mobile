@@ -1,0 +1,90 @@
+# =========================
+
+# Flutter / Dart
+
+# =========================
+
+.dart_tool/
+.packages
+.pub/
+.pub-cache/
+build/
+coverage/
+
+# Flutter generated
+
+.flutter-plugins-dependencies
+**/doc/api/
+**/ios/Flutter/.last_build_id
+
+# =========================
+
+# IDE / Editor
+
+# =========================
+
+.idea/
+*.iml
+*.ipr
+*.iws
+
+.vscode/
+
+# =========================
+
+# OS / Misc
+
+# =========================
+
+.DS_Store
+*.log
+*.swp
+*.pyc
+*.class
+
+# =========================
+
+# Android
+
+# =========================
+
+android/.gradle/
+android/app/build/
+android/app/debug/
+android/app/profile/
+android/app/release/
+
+# =========================
+
+# iOS / macOS
+
+# =========================
+
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+
+macos/Pods/
+
+# =========================
+
+# Misc build systems
+
+# =========================
+
+.build/
+.buildlog/
+.swiftpm/
+.svn/
+.history
+.atom/
+
+# =========================
+
+# Obfuscation / Symbols
+
+# =========================
+
+app.*.symbols
+app.*.map.json
