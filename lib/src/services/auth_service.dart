@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_appauth/flutter_appauth.dart';
 
 class AuthService {
@@ -22,9 +23,9 @@ class AuthService {
         ),
       );
 
-      return result?.accessToken;
+      return result.accessToken;
     } catch (e) {
-      print("Auth error: $e");
+      debugPrint("Auth error: $e");
       return null;
     }
   }

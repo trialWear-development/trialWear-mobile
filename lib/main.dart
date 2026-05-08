@@ -7,16 +7,24 @@ import 'src/repositories/patient_repository.dart';
 import 'src/controllers/patient_controller.dart';
 import 'src/ui/screens/login_screen.dart';
 
+import 'src/services/bluetooth_service.dart';
+import 'src/controllers/bluetooth_controller.dart';
+
 void main() {
   final dio = DioClient.create();
   final patientService = PatientService(dio);
   final patientRepository = PatientRepository(patientService);
+
+  final bluetoothService = BluetoothService();
 
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider<PatientController>(
           create: (_) => PatientController(patientRepository),
+        ),
+        ChangeNotifierProvider<BluetoothController>(
+          create: (_) => BluetoothController(bluetoothService),
         ),
       ],
       child: const TrialWearApp(),
