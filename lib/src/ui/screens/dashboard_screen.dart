@@ -78,8 +78,18 @@ class DashboardScreen extends StatelessWidget {
                       AppConstants.verticalGap12,
                       SizedBox(
                         width: double.infinity,
+                        child: OutlinedButton(
+                          onPressed:
+                              bluetoothController.mockConnectAndReceiveData,
+                          child: const Text('Use Mock BLE Data'),
+                        ),
+                      ),
+                      AppConstants.verticalGap12,
+                      SizedBox(
+                        width: double.infinity,
                         child: FilledButton(
-                          onPressed: bluetoothController.isConnected &&
+                          onPressed:
+                              bluetoothController.isConnected &&
                                   !bluetoothController.isRequesting
                               ? bluetoothController.requestGeoData
                               : null,
@@ -108,10 +118,7 @@ class DashboardScreen extends StatelessWidget {
                               'Longitude',
                               geoData.longitude.toStringAsFixed(5),
                             ),
-                            _infoRow(
-                              'Speed',
-                              geoData.speed.toStringAsFixed(3),
-                            ),
+                            _infoRow('Speed', geoData.speed.toStringAsFixed(3)),
                             _infoRow('Zone', geoData.zone),
                             _infoRow(
                               'Received At',
@@ -127,25 +134,22 @@ class DashboardScreen extends StatelessWidget {
                   child: patientController.isLoading
                       ? const Center(child: CircularProgressIndicator())
                       : patientController.errorMessage != null
-                          ? Text(
-                              patientController.errorMessage!,
-                              style: const TextStyle(color: Colors.red),
-                            )
-                          : patient == null
-                              ? const Text('No patient loaded.')
-                              : Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    _infoRow('Patient Name', patient.name),
-                                    _infoRow('Patient ID', patient.id),
-                                    _infoRow(
-                                      'Date of Birth',
-                                      patient.dateOfBirth,
-                                    ),
-                                    _infoRow('Trial ID', patient.trialId),
-                                    _infoRow('Status', patient.status),
-                                  ],
-                                ),
+                      ? Text(
+                          patientController.errorMessage!,
+                          style: const TextStyle(color: Colors.red),
+                        )
+                      : patient == null
+                      ? const Text('No patient loaded.')
+                      : Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _infoRow('Patient Name', patient.name),
+                            _infoRow('Patient ID', patient.id),
+                            _infoRow('Date of Birth', patient.dateOfBirth),
+                            _infoRow('Trial ID', patient.trialId),
+                            _infoRow('Status', patient.status),
+                          ],
+                        ),
                 ),
 
                 _sectionCard(

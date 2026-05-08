@@ -91,4 +91,16 @@ class BluetoothController extends ChangeNotifier {
     unawaited(_bluetoothService.dispose());
     super.dispose();
   }
+
+  void mockConnectAndReceiveData() {
+    isConnected = true;
+    statusMessage = 'Mock TrialWear device connected';
+
+    final rawString = '45.67700 -111.04290 0.125 hospital_zone';
+
+    latestGeoData = BleGeoData.fromRawString(rawString);
+
+    statusMessage = 'Mock geo data received';
+    notifyListeners();
+  }
 }
