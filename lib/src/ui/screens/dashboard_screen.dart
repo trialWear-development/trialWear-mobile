@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../config/constants.dart';
 import '../../controllers/patient_controller.dart';
 import '../../controllers/bluetooth_controller.dart';
+import 'ble_geo_map_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   final String deviceId;
@@ -208,15 +209,30 @@ class DashboardScreen extends StatelessWidget {
                           children: [
                             const Icon(Icons.map, size: 36),
                             AppConstants.verticalGap8,
+
                             geoData == null
                                 ? const Text('No location received yet.')
                                 : Text(
                                     '${geoData.latitude.toStringAsFixed(3)}, ${geoData.longitude.toStringAsFixed(3)}',
                                     textAlign: TextAlign.center,
                                   ),
+
                             AppConstants.verticalGap8,
+
                             OutlinedButton(
-                              onPressed: geoData == null ? null : () {},
+                              onPressed: geoData == null
+                                  ? null
+                                  : () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (_) => BleGeoMapScreen(
+                                              latitude: geoData.latitude,
+                                            longitude: geoData.longitude,
+                                          ),
+                                        ),
+                                      );
+                                    },
                               child: const Text('View Map'),
                             ),
                           ],
