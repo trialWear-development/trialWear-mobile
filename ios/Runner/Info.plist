@@ -66,5 +66,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+
+	<key>NSCameraUsageDescription</key>
+	<string>TrialWear needs camera access to scan the QR code on the patch.</string>
+
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>TrialWear needs location access to show your current location on the GIS map.</string>
+
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>TrialWear uses Bluetooth to connect with the TrialWear patch.</string>
 </dict>
 </plist>

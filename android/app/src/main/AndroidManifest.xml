@@ -11,6 +11,10 @@
 
     <!-- Needed if app uses GPS/location later -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature
         android:name="android.hardware.bluetooth_le"
@@ -20,6 +24,11 @@
         android:label="trialwear_app_v1"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBKZ6LrqOdCdf5FwAtgoA3SLtUEY0dz1q0" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
