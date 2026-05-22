@@ -5,6 +5,18 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+val localProperties = java.util.Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.inputStream().use { input ->
+        localProperties.load(input)
+    }
+}
+
+val googleMapsApiKey: String =
+    localProperties.getProperty("GOOGLE_MAPS_API_KEY") ?: ""
+
 android {
     namespace = "com.example.trialwear_app_v1"
     compileSdk = flutter.compileSdkVersion
@@ -31,7 +43,8 @@ android {
 
         manifestPlaceholders.putAll(
             mapOf(
-                "appAuthRedirectScheme" to "com.example.trialwear"
+                "appAuthRedirectScheme" to "com.example.trialwear",
+                "GOOGLE_MAPS_API_KEY" to googleMapsApiKey
             )
         )
     }

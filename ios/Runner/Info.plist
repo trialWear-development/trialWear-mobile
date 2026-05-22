@@ -75,5 +75,8 @@
 
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>TrialWear uses Bluetooth to connect with the TrialWear patch.</string>
+
+	<key>GOOGLE_MAPS_API_KEY</key>
+	<string>$(GOOGLE_MAPS_API_KEY)</string>
 </dict>
 </plist>

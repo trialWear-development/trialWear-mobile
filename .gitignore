@@ -88,3 +88,6 @@ macos/Pods/
 
 app.*.symbols
 app.*.map.json
+
+ios/Runner/Secrets.xcconfig
+.env
